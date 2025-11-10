@@ -21,7 +21,14 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FormsModule } from '@angular/forms';
 
-
+//DEFINE ROUTE
+const routes : Routes = [
+  {path:'', component:HomeComponent},
+  {path: 'Home', component:HomeComponent},
+  {path: 'About', component:AboutComponent},
+  {path: 'Contact', component:ContactComponent},
+  {path: 'Courses', component:CoursesComponent},
+]
 
 
 
@@ -46,7 +53,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [ServicesService, CourseService],
   bootstrap: [AppComponent]
