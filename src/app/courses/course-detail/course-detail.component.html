@@ -2,15 +2,15 @@
     <div class="course-detail-container">
         <div class="course-details">
             <div class="course-banner">
-                <img src="./../../../assets/courses/course1.jpg" class="course-banner-image">
+                <img [src]="selectedCourse.image" class="course-banner-image">
             </div>
             <div class="course-title">
                 <h1>Complete Modern JavaScript Course</h1>
             </div>
             <div class="course-info">
-                <div class="course-info-rating"><b>Course Rating: </b>4.5</div>
-                <div class="course-info-duration"><b>Duration: </b>18.5</div>
-                <div class="course-info-author"><b>Author: </b>Steve Smith</div>
+                <div class="course-info-rating"><b>Course Rating: </b>{{selectedCourse.rating}}</div>
+                <div class="course-info-duration"><b>Duration: </b>{{selectedCourse.duration}}</div>
+                <div class="course-info-author"><b>Author: </b>{{selectedCourse.author}}</div>
             </div>
             <div class="course-desc">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
@@ -59,7 +59,7 @@
                 <div class="course-selection-team">Team</div>
             </div>
             <div class="course-price-discount">
-                <span style="font-size: 24px; font-weight: bold; color: #222; margin:0px 5px;">$499</span>
+                <span style="font-size: 24px; font-weight: bold; color: #222; margin:0px 5px;">{{selectedCourse.price}}</span>
                 <span style="font-size: 18px; font-weight: bold; color: #444; margin:0px 5px;"><s>$3199</s></span>
                 <span style="font-size: 18px; color: #222; margin:0px 5px;">86% OFF</span>
                 <div class="offer-timer">
