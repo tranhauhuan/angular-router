@@ -20,21 +20,8 @@ import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { FormsModule } from '@angular/forms';
+import { RoutingModule } from './routing.module';
 
-//DEFINE ROUTE
-const routes : Routes = [
-  {path:'', component:HomeComponent},
-  {path: 'Home', component:HomeComponent},
-  {path: 'About', component:AboutComponent},
-  {path: 'Contact', component:ContactComponent},
-  {path: 'Courses', component:CoursesComponent},
-  {path: 'Courses', children: [
-    {path:'course/:id', component:CourseDetailComponent},
-    {path:'popular', component:PopularComponent}
-  ]},
-  // {path: 'Courses/course/:id', component:CourseDetailComponent},
-  {path:'**', component:NotFoundComponent}
-]
 
 
 
@@ -60,7 +47,7 @@ const routes : Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(routes)
+    RoutingModule
   ],
   providers: [ServicesService, CourseService],
   bootstrap: [AppComponent]
