@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Course } from 'src/app/Models/course';
 import { CourseService } from 'src/app/Services/course.service';
@@ -8,17 +8,24 @@ import { CourseService } from 'src/app/Services/course.service';
   templateUrl: './course-detail.component.html',
   styleUrls: ['./course-detail.component.css']
 })
-export class CourseDetailComponent implements OnInit{
+export class CourseDetailComponent implements OnInit, OnDestroy{
 
   selectedCourse: Course;
   courseId: number;
 
   courseServcie: CourseService = inject(CourseService);
   activeRoute: ActivatedRoute = inject(ActivatedRoute);
+  paramMapObs;
 
   ngOnInit(): void {
-    this.courseId = +this.activeRoute.snapshot.paramMap.get('id');
-    this.selectedCourse = this.courseServcie.courses.find(course=>course.id === this.courseId);
+   this.paramMapObs = this.activeRoute.paramMap.subscribe((data)=>{
+    this.courseId = +data.get('id');
+    this.selectedCourse = this.courseServcie.courses.find(course=>course.id===this.courseId)
+   })
+  }
+
+  ngOnDestroy(): void {
+    this.paramMapObs.unsubscribe()
   }
 
 }
