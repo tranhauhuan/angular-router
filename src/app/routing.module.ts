@@ -7,6 +7,7 @@ import { PopularComponent } from './home/popular/popular.component';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseDetailComponent } from './courses/course-detail/course-detail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -20,6 +21,7 @@ const routes : Routes = [
     {path:'course/:id', component:CourseDetailComponent},
     {path:'popular', component:PopularComponent}
   ]},
+  {path:'Login', component:LoginComponent},
   // {path: 'Courses/course/:id', component:CourseDetailComponent},
   {path:'**', component:NotFoundComponent}
 ]
